@@ -1,6 +1,6 @@
 # [HashiCorp package manager](https://github.com/nodesocket/hashipm)
 
-##### Install and update to the latest version of various HashiCorp packages.
+##### Get the latest version of various HashiCorp packages.
 
 ## Installation
 
@@ -11,53 +11,29 @@ ln -s "$PWD"/hashipm/hashipm.bash /usr/local/bin/hashipm
 
 ## API/Commands
 
-### install
+### get
 
-> install \<package\> - Install package
-
-### update
-
-> update - Update all installed packages
-
-### help
-
-> help - Display help
-
-```
-➜ hashipm help
-Usage: hashipm command <command-specific-options>
-
-  install <package>       Install package
-  update                  Update all installed packages
-  help                    Display help
-  version                 Display the current version
-
-```
+> get \<package\> - Download and install package
 
 ### version
 
 > version - Display the current version
 
 ```
-➜ hashipm version
-hashipm 0.1.0
-```
-
-### default
-
-> default - Display the current version and help
+➜ hashipm --version
+hashipm v0.1.0
 
 ```
-➜ hashipm
-hashipm 0.1.0
 
-Usage: hashipm command <command-specific-options>
+### help
 
-  install <package>       Install package
-  update                  Update all installed packages
-  help                    Display help
-  version                 Display the current version
+> help - Display help
 
+```
+➜ hashipm --help
+Usage: hashipm [--version] [--help] command [command-specific-args]
+
+  get <package>   Download and install package
 ```
 
 ## Changelog

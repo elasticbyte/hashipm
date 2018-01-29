@@ -7,7 +7,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     https://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,68 +18,55 @@
 
 set -eo pipefail; [[ $TRACE ]] && set -x
 
-readonly APP_NAME="hashipm"
+readonly NAME="hashipm"
 readonly VERSION="0.1.0"
 
 _version() {
-  echo "$APP_NAME $VERSION"
+    echo "$NAME v$VERSION"
+    echo
 }
 
 
 _help() {
-  echo "Usage: $APP_NAME command <command-specific-options>"
-  echo
-  cat<<EOF | column -c2 -t -s,
-  install <package>, Install package
-  update, Update all installed packages
-  help, Display help
-  version, Display the current version
+    echo "Usage: $NAME [--version] [--help] command [command-specific-args]"
+    echo
+    cat<<EOF | column -c2 -t -s,
+    get <package>, Download and install package
 EOF
-  echo
 }
 
-_install() {
-  echo "[ debug:_install ] in empty stub function"
-}
-
-_update() {
-  echo "[ debug:_update ] in empty stub function"
+_get() {
+    echo "[debug] in empty stub function (_get)"
 }
 
 _main() {
-  local _command="$1"
+    local cmd="$1"
 
-  if [[ -z $_command ]]; then
-    _version
-    echo
-    _help
-    exit 0
-  fi
+    if [[ -z $cmd ]]; then
+        _help 1>&2
+        exit 3
+    fi
 
-  shift 1
-  case "$_command" in
-    "install")
-      _install
-      ;;
+    shift 1
+    case "$cmd" in
+        "get")
+            _get
+            ;;
 
-    "update")
-      _update
-      ;;
+        "--version")
+            _version
+            ;;
 
-    "version")
-      _version
-      ;;
+        "--help")
+            _help
+            ;;
 
-    "help")
-      _help
-      ;;
-
-    *)
-      _help 1>&2
-      exit 3
-  esac
+        *)
+            _help 1>&2
+            exit 3
+    esac
 }
 
 if [[ "$0" == "$BASH_SOURCE" ]]; then
-  _main "$@"
+    _main "$@"
 fi
