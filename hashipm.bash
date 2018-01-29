@@ -39,11 +39,11 @@ EOF
 }
 
 _install() {
-  echo "[debug] in _install empty stub function"
+  echo "[ debug:_install) ] in empty stub function"
 }
 
 _update() {
-  echo "[debug] in _update empty stub function"
+  echo "[ debug:_upate ] in empty stub function"
 }
 
 _main() {
