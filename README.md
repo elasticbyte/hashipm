@@ -1,6 +1,6 @@
 # [HashiCorp package manager](https://github.com/elasticbyte/hashipm)
 
-##### Get the latest version of various HashiCorp packages.
+#### Get the latest version of various HashiCorp packages.
 
 A project by [Elastic Byte](https://elasticbyte.net). Built with :heart: in :guitar: Nashville.
 
