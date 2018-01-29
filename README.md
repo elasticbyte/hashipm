@@ -2,7 +2,7 @@
 
 ##### Get the latest version of various HashiCorp packages.
 
-Built with :heart: in <img src="https://elasticbyte.net/img/guitar.png" alt="Guitar" /> Nashville<br />
+Built with :heart: in :guitar: Nashville
 
 ## Installation
 
