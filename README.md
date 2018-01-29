@@ -2,7 +2,7 @@
 
 ##### Get the latest version of various HashiCorp packages.
 
-Built with :heart: in :guitar: Nashville
+Built with :heart: in :guitar: Nashville.
 
 ## Installation
 
@@ -64,7 +64,7 @@ For more information on semantic versioning, visit https://semver.org.
 
 ## License & Legal
 
-Copyright 2018 Justin Keller
+Copyright 2018 [Elastic Byte](https://elasticbyte.net)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
