@@ -1,11 +1,13 @@
-# [HashiCorp package manager](https://github.com/nodesocket/hashipm)
+# [HashiCorp package manager](https://github.com/elasticbyte/hashipm)
 
 ##### Get the latest version of various HashiCorp packages.
+
+Built with <span class="heart"><i class="fa fa-heart"></i></span> in <img src="https://elasticbyte.net/img/guitar.png" alt="Guitar" /> Nashville<br />
 
 ## Installation
 
 ```
-git clone https://github.com/nodesocket/hashipm.git
+git clone https://github.com/elasticbyte/hashipm.git
 ln -s "$PWD"/hashipm/hashipm.bash /usr/local/bin/hashipm
 ```
 
@@ -38,15 +40,15 @@ Usage: hashipm [--version] [--help] command [command-specific-args]
 
 ## Changelog
 
-https://github.com/nodesocket/hashipm/blob/master/CHANGELOG.md
+https://github.com/elasticbyte/hashipm/blob/master/CHANGELOG.md
 
 ## Support, Bugs, And Feature Requests
 
-Create issues here in GitHub (https://github.com/nodesocket/hashipm/issues).
+Create issues here in GitHub (https://github.com/elasticbyte/hashipm/issues).
 
 ## Versioning
 
-For transparency and insight into the release cycle, and for striving to maintain backward compatibility, [hashipm](https://github.com/nodesocket/hashipm) will be maintained under the semantic versioning guidelines.
+For transparency and insight into the release cycle, and for striving to maintain backward compatibility, [hashipm](https://github.com/elasticbyte/hashipm) will be maintained under the semantic versioning guidelines.
 
 Releases will be numbered with the follow format:
 
