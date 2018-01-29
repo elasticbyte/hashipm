@@ -2,7 +2,7 @@
 
 ##### Get the latest version of various HashiCorp packages.
 
-Built with :heart: in :guitar: Nashville.
+A project by [Elastic Byte](https://elasticbyte.net). Built with :heart: in :guitar: Nashville.
 
 ## Installation
 
