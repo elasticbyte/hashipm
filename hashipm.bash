@@ -36,7 +36,31 @@ EOF
 }
 
 _get() {
-    echo "[debug] in empty stub function (_get)"
+    local package=$1
+
+    if [ -z "$package" ]; then
+        echo "Argument <package> is required" 1>&2
+        exit 4
+    fi
+
+    local yaml_path="packages/$package/index.yaml"
+
+    if [ ! -f "$yaml_path" ]; then
+        echo "Package '$package' not found" 1>&2
+        exit 5
+    fi
+
+    local latest_version=$(curl --silent "https://api.github.com/repos/hashicorp/$package/releases/latest" |
+        grep '"tag_name":' |
+        sed -E 's/.*"([^"]+)".*/\1/')
+
+    if [ -z "$current_version" ]; then
+        echo "Failed to determine the latest version of package '$package'" 1>&2
+        exit 6
+    fi
+
+    source lib/yaml.sh
+    create_variables "$yaml_path"
 }
 
 _main() {
@@ -50,7 +74,7 @@ _main() {
     shift 1
     case "$cmd" in
         "get")
-            _get
+            _get "$@"
             ;;
 
         "--version")
