@@ -50,17 +50,31 @@ _get() {
         exit 5
     fi
 
-    local latest_version=$(curl --silent "https://api.github.com/repos/hashicorp/$package/releases/latest" |
-        grep '"tag_name":' |
-        sed -E 's/.*"([^"]+)".*/\1/')
+    local latest_version=$(curl --fail --silent --location "https://api.github.com/repos/hashicorp/$package/tags" |
+        grep '"name":' |
+        sed -E 's/.*"([^"]+)".*/\1/' |
+        head -n 1 |
+        tr -d 'v')
 
-    if [ -z "$current_version" ]; then
+    if [ -z "$latest_version" ]; then
         echo "Failed to determine the latest version of package '$package'" 1>&2
         exit 6
     fi
 
     source lib/yaml.sh
     create_variables "$yaml_path"
+
+    # how to reference a variable using a variable?
+    local download_path="$packer_darwin_amd64"
+
+    echo "Downloading $package $latest_version from $download_path..."
+    curl --fail --silent --location "$download_path" > /tmp/"$package-$latest_version".zip
+
+    unzip -q -o /tmp/"$package-$latest_version".zip -d /usr/local/bin
+
+    echo "Installed $package $latest_version into /usr/local/bin"
+
+    rm -f /tmp/"$package-$latest_version".zip
 }
 
 _main() {
