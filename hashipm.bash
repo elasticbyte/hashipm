@@ -50,8 +50,7 @@ _get() {
         exit 5
     fi
 
-    local latest_version
-    latest_version=$(curl --fail --silent --location "https://api.github.com/repos/hashicorp/$package/tags" |
+    local latest_version=$(curl --fail --silent --location "https://api.github.com/repos/hashicorp/$package/tags" |
         grep '"name":' |
         sed -E 's/.*"([^"]+)".*/\1/' |
         head -n 1 |
