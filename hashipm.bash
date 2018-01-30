@@ -65,16 +65,25 @@ _get() {
     create_variables "$yaml_path"
 
     # how to reference a variable using a variable?
-    local download_path="$packer_darwin_amd64"
+    # currently hard-coding packer_darwin_amd64
+    local download_url="$packer_darwin_amd64"
 
-    echo "Downloading $package $latest_version from $download_path..."
-    curl --fail --silent --location "$download_path" > /tmp/"$package-$latest_version".zip
+    local tmp_path="/tmp/$package-$latest_version.zip"
 
-    unzip -q -o /tmp/"$package-$latest_version".zip -d /usr/local/bin
+    echo "Downloading $package $latest_version from $download_url..."
+
+    curl --fail --silent --location "$download_url" > "$tmp_path"
+
+    if [ ! -f "$tmp_path" ]; then
+        echo "Failed downloading $package $latest_version from $download_url into " 1>&2
+        exit 7
+    fi
+
+    unzip -q -o "$tmp_path" -d /usr/local/bin
 
     echo "Installed $package $latest_version into /usr/local/bin"
 
-    rm -f /tmp/"$package-$latest_version".zip
+    rm -f "$tmp_path"
 }
 
 _main() {
