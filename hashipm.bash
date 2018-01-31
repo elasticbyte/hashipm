@@ -19,13 +19,13 @@
 set -eo pipefail; [[ $TRACE ]] && set -x
 
 readonly NAME="hashipm"
-readonly VERSION="0.1.0"
+readonly VERSION="0.2.0"
+readonly INSTALL_PATH="/usr/local/bin"
 
 _version() {
     echo "$NAME v$VERSION"
     echo
 }
-
 
 _help() {
     echo "Usage: $NAME [--version] [--help] command [command-specific-args]"
@@ -64,24 +64,23 @@ _get() {
     source lib/yaml.sh
     create_variables "$yaml_path"
 
-    # how to reference a variable using a variable?
-    # currently hard-coding packer_darwin_amd64
-    local download_url="$packer_darwin_amd64"
+    VARNAME="${package}_darwin_amd64"
+    local download_url="${!VARNAME}"
 
     local tmp_path="/tmp/$package-$latest_version.zip"
 
-    echo "Downloading $package $latest_version from $download_url..."
+    echo "Downloading $package ($latest_version) from $download_url..."
 
     curl --fail --silent --location "$download_url" > "$tmp_path"
 
     if [ ! -f "$tmp_path" ]; then
-        echo "Failed downloading $package $latest_version from $download_url into " 1>&2
+        echo "Failed downloading $package ($latest_version) from $download_url into " 1>&2
         exit 7
     fi
 
-    unzip -q -o "$tmp_path" -d /usr/local/bin
+    unzip -q -o "$tmp_path" -d $INSTALL_PATH
 
-    echo "Installed $package $latest_version into /usr/local/bin"
+    echo "Installed $package ($latest_version) into $INSTALL_PATH"
 
     rm -f "$tmp_path"
 }

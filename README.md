@@ -16,6 +16,12 @@ ln -s "$PWD"/hashipm/hashipm.bash /usr/local/bin/hashipm
 ### get
 
 > get \<package\> - Download and install package
+ 
+```
+➜ hashipm get terraform
+Downloading terraform (0.11.3) from https://releases.hashicorp.com/terraform/0.11.3/terraform_0.11.3_darwin_amd64.zip...
+Installed terraform (0.11.3) into /usr/local/bin
+```
 
 ### version
 
@@ -23,7 +29,7 @@ ln -s "$PWD"/hashipm/hashipm.bash /usr/local/bin/hashipm
 
 ```
 ➜ hashipm --version
-hashipm v0.1.0
+hashipm v0.2.0
 
 ```
 

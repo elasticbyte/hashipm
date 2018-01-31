@@ -1,0 +1,11 @@
+consul:
+  darwin_386: https://releases.hashicorp.com/consul/${latest_version}/consul_${latest_version}_darwin_386.zip
+  darwin_amd64: https://releases.hashicorp.com/consul/${latest_version}/consul_${latest_version}_darwin_amd64.zip
+  freebsd_386: https://releases.hashicorp.com/consul/${latest_version}/consul_${latest_version}_freebsd_386.zip
+  freebsd_amd64: https://releases.hashicorp.com/consul/${latest_version}/consul_${latest_version}_freebsd_amd64.zip
+  freebsd_arm: https://releases.hashicorp.com/consul/${latest_version}/consul_${latest_version}_freebsd_arm.zip
+  linux_386: https://releases.hashicorp.com/consul/${latest_version}/consul_${latest_version}_linux_386.zip
+  linux_amd64: https://releases.hashicorp.com/consul/${latest_version}/consul_${latest_version}_linux_amd64.zip
+  linux_arm: https://releases.hashicorp.com/consul/${latest_version}/consul_${latest_version}_linux_arm.zip
+  linux_arm64: https://releases.hashicorp.com/consul/${latest_version}/consul_${latest_version}_linux_arm64.zip
+  solaris_amd64: https://releases.hashicorp.com/consul/${latest_version}/consul_${latest_version}_solaris_amd64.zip
