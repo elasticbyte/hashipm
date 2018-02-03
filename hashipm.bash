@@ -19,7 +19,7 @@
 set -eo pipefail; [[ $TRACE ]] && set -x
 
 readonly NAME="hashipm"
-readonly VERSION="0.2.0"
+readonly VERSION="0.3.0"
 readonly INSTALL_PATH="/usr/local/bin"
 
 _version() {
@@ -43,11 +43,16 @@ _get() {
         exit 4
     fi
 
-    local yaml_path="packages/$package/index.yaml"
+    if [ -z "$HASHIPM_ROOT" ]; then
+        echo "Environment variable '\$HASHIPM_ROOT' is not set" 1>&2
+        exit 5
+    fi
+
+    local yaml_path="$HASHIPM_ROOT/packages/$package/index.yaml"
 
     if [ ! -f "$yaml_path" ]; then
         echo "Package '$package' not found" 1>&2
-        exit 5
+        exit 6
     fi
 
     local latest_version=$(curl --fail --silent --location "https://api.github.com/repos/hashicorp/$package/tags" |
@@ -58,10 +63,10 @@ _get() {
 
     if [ -z "$latest_version" ]; then
         echo "Failed to determine the latest version of package '$package'" 1>&2
-        exit 6
+        exit 7
     fi
 
-    source lib/yaml.sh
+    source "$HASHIPM_ROOT"/lib/yaml.sh
     create_variables "$yaml_path"
 
     VARNAME="${package}_darwin_amd64"
@@ -75,7 +80,7 @@ _get() {
 
     if [ ! -f "$tmp_path" ]; then
         echo "Failed downloading $package ($latest_version) from $download_url into " 1>&2
-        exit 7
+        exit 8
     fi
 
     unzip -q -o "$tmp_path" -d $INSTALL_PATH

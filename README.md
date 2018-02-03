@@ -11,6 +11,20 @@ git clone https://github.com/elasticbyte/hashipm.git
 ln -s "$PWD"/hashipm/hashipm.bash /usr/local/bin/hashipm
 ```
 
+### Bash shell
+
+```
+echo "HASHIPM_ROOT=$PWD/hashipm" >> "$HOME"/.profile
+source "$HOME"/.profile
+```
+
+#### Zsh shell
+
+```
+echo "HASHIPM_ROOT=$PWD/hashipm" >> "$HOME"/.zshrc
+source "$HOME"/.zshrc
+```
+
 ## API/Commands
 
 ### get
@@ -29,7 +43,7 @@ Installed terraform (0.11.3) into /usr/local/bin
 
 ```
 ➜ hashipm --version
-hashipm v0.2.0
+hashipm v0.3.0
 
 ```
 
