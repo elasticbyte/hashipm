@@ -11,14 +11,14 @@ git clone https://github.com/elasticbyte/hashipm.git
 ln -s "$PWD"/hashipm/hashipm.bash /usr/local/bin/hashipm
 ```
 
-### Bash shell
+##### Bash shell
 
 ```
 echo "HASHIPM_ROOT=$PWD/hashipm" >> "$HOME"/.profile
 source "$HOME"/.profile
 ```
 
-#### Zsh shell
+##### Zsh shell
 
 ```
 echo "HASHIPM_ROOT=$PWD/hashipm" >> "$HOME"/.zshrc
