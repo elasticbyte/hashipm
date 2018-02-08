@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+## v0.5.0 - *2/7/2018*
+
+**Note:** hardcoding the architecture to amd64.
+
+- Support for Nomad.
+
 ## v0.4.0 - *2/7/2018*
 
 **Note:** hardcoding the architecture to amd64.

@@ -19,7 +19,7 @@
 set -eo pipefail; [[ $TRACE ]] && set -x
 
 readonly NAME="hashipm"
-readonly VERSION="0.4.0"
+readonly VERSION="0.5.0"
 readonly INSTALL_PATH="/usr/local/bin"
 
 _version() {
