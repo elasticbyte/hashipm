@@ -2,12 +2,21 @@
 
 #### Get the latest version of various HashiCorp packages.
 
-Currently supports the following packages:
+Hashipm supports the following packages:
 
+![Consul](https://s3.amazonaws.com/hashicorp-marketing-web-assets/brand/Consul_VerticalLogo_FullColor.r1x9c1CS6x.svg)
 - [Consul](https://www.consul.io)
+
+![Nomad](https://s3.amazonaws.com/hashicorp-marketing-web-assets/brand/Nomad_VerticalLogo_FullColor.r1x_p8YHag.svg)
 - [Nomad](https://www.nomadproject.io)
+
+![Packer](https://s3.amazonaws.com/hashicorp-marketing-web-assets/brand/Packer_VerticalLogo_FullColor.svg)
 - [Packer](https://www.packer.io)
+
+![Terraform](https://s3.amazonaws.com/hashicorp-marketing-web-assets/brand/Terraform_VerticalLogo_FullColor.B1rgyCrag.svg)
 - [Terraform](https://www.terraform.io)
+
+![Vault](https://s3.amazonaws.com/hashicorp-marketing-web-assets/brand/Vault_VerticalLogo_FullColor.B1xPC0pSax.svg)
 - [Vault](https://www.vaultproject.io)
 
 A project by [Elastic Byte](https://elasticbyte.net). Built with :heart: in :guitar: Nashville.
