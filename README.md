@@ -25,6 +25,11 @@ echo "HASHIPM_ROOT=$PWD/hashipm" >> "$HOME"/.zshrc
 source "$HOME"/.zshrc
 ```
 
+## Requirements
+
+- curl
+- unzip
+
 ## API/Commands
 
 ### get

@@ -55,7 +55,7 @@ _get() {
         exit 6
     fi
 
-    local os;
+    local os
     case "$OSTYPE" in
         darwin*)  os="darwin" ;;
         freebsd*) os="freebsd" ;;
