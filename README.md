@@ -2,6 +2,14 @@
 
 #### Get the latest version of various HashiCorp packages.
 
+Currently supports the following packages:
+
+- [Consul](https://www.consul.io)
+- [Nomad](https://www.nomadproject.io)
+- [Packer](https://www.packer.io)
+- [Terraform](https://www.terraform.io)
+- [Vault](https://www.vaultproject.io)
+
 A project by [Elastic Byte](https://elasticbyte.net). Built with :heart: in :guitar: Nashville.
 
 ## Installation
