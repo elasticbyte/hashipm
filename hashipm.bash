@@ -19,7 +19,7 @@
 set -eo pipefail; [[ $TRACE ]] && set -x
 
 readonly NAME="hashipm"
-readonly VERSION="0.3.0"
+readonly VERSION="0.4.0"
 readonly INSTALL_PATH="/usr/local/bin"
 
 _version() {
@@ -55,6 +55,25 @@ _get() {
         exit 6
     fi
 
+    local os;
+    case "$OSTYPE" in
+        darwin*)  os="darwin" ;;
+        freebsd*) os="freebsd" ;;
+        linux*)   os="linux" ;;
+        netbsd*)  os="netbsd" ;;
+        openbsd*) os="openbsd" ;;
+        solaris*) os="solaris" ;;
+    esac
+
+    if [ -z "$os" ]; then
+        echo "Failed to determine the local operating system" 1>&2
+        exit 7
+    fi
+
+    # hardcoding amd64 for now
+    # how to determine if 386, amd64, arm, arm64?
+    local architecture="amd64"
+
     local latest_version=$(curl --fail --silent --location "https://api.github.com/repos/hashicorp/$package/tags" |
         grep '"name":' |
         sed -E 's/.*"([^"]+)".*/\1/' |
@@ -62,25 +81,30 @@ _get() {
         tr -d 'v')
 
     if [ -z "$latest_version" ]; then
-        echo "Failed to determine the latest version of package '$package'" 1>&2
-        exit 7
+        echo "Failed to determine the latest version of '$package'" 1>&2
+        exit 8
     fi
 
     source "$HASHIPM_ROOT"/lib/yaml.sh
     create_variables "$yaml_path"
 
-    VARNAME="${package}_darwin_amd64"
+    VARNAME="${package}_${os}_${architecture}"
     local download_url="${!VARNAME}"
 
-    local tmp_path="/tmp/$package-$latest_version.zip"
+    if [ -z "$download_url" ]; then
+        echo "Failed to determine the download url for '$package' on ${os}/${architecture}" 1>&2
+        exit 9
+    fi
 
     echo "Downloading $package ($latest_version) from $download_url..."
+
+    local tmp_path="/tmp/$package-$latest_version.zip"
 
     curl --fail --silent --location "$download_url" > "$tmp_path"
 
     if [ ! -f "$tmp_path" ]; then
-        echo "Failed downloading $package ($latest_version) from $download_url into " 1>&2
-        exit 8
+        echo "Failed downloading $package ($latest_version) from $download_url to $tmp_path" 1>&2
+        exit 10
     fi
 
     unzip -q -o "$tmp_path" -d $INSTALL_PATH
