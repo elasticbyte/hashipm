@@ -4,11 +4,11 @@
 
 Hashipm supports the following packages:
 
-<img src="https://s3.amazonaws.com/hashicorp-marketing-web-assets/brand/Consul_VerticalLogo_FullColor.r1x9c1CS6x.svg" width="75px" alt="Consul" />
-<img src="https://s3.amazonaws.com/hashicorp-marketing-web-assets/brand/Nomad_VerticalLogo_FullColor.r1x_p8YHag.svg" width="75px" alt="Nomad" />
-<img src="https://s3.amazonaws.com/hashicorp-marketing-web-assets/brand/Packer_VerticalLogo_FullColor.svg" width="75px" alt="Packer" />
-<img src="https://s3.amazonaws.com/hashicorp-marketing-web-assets/brand/Terraform_VerticalLogo_FullColor.B1rgyCrag.svg" width="75px" alt="Terraform" />
-<img src="https://s3.amazonaws.com/hashicorp-marketing-web-assets/brand/Vault_VerticalLogo_FullColor.B1xPC0pSax.svg" width="75px" alt="Vault" />
+- [Consul](https://www.consul.io)
+- [Nomad](https://www.nomadproject.io)
+- [Packer](https://www.packer.io)
+- [Terraform](https://www.terraform.io)
+- [Vault](https://www.vaultproject.io)
 
 A project by [Elastic Byte](https://elasticbyte.net). Built with :heart: in :guitar: Nashville.
 
