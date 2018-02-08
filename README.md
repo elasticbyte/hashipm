@@ -1,4 +1,4 @@
-# [HashiCorp package manager](https://github.com/elasticbyte/hashipm)
+# HashiCorp package manager
 
 #### Get the latest version of various HashiCorp packages.
 
