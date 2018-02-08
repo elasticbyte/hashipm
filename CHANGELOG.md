@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+## v0.6.0 - *2/8/2018*
+
+- Support for determining architecture *(386, amd64, arm, arm64)*.
+
 ## v0.5.0 - *2/7/2018*
 
 **Note:** hardcoding the architecture to amd64.
@@ -11,7 +15,7 @@ CHANGELOG
 
 **Note:** hardcoding the architecture to amd64.
 
-- Support for determining local operating systems *(Darwin, FreeBSD, Linux, NetBSD, OpenBSD, Solaris)*.
+- Support for determining operating systems *(Darwin, FreeBSD, Linux, NetBSD, OpenBSD, Solaris)*.
 
 ## v0.3.0 - *2/3/2018*
 

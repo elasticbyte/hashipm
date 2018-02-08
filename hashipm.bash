@@ -19,7 +19,7 @@
 set -eo pipefail; [[ $TRACE ]] && set -x
 
 readonly NAME="hashipm"
-readonly VERSION="0.5.0"
+readonly VERSION="0.6.0"
 readonly INSTALL_PATH="/usr/local/bin"
 
 _version() {
@@ -66,13 +66,22 @@ _get() {
     esac
 
     if [ -z "$os" ]; then
-        echo "Failed to determine the local operating system" 1>&2
+        echo "Failed to determine the operating system" 1>&2
         exit 7
     fi
 
-    # hardcoding amd64 for now
-    # how to determine if 386, amd64, arm, arm64?
-    local architecture="amd64"
+    local architecture
+    case $(uname -m) in
+        i386)   architecture="386" ;;
+        i686)   architecture="386" ;;
+        x86_64) architecture="amd64" ;;
+        arm)    dpkg --print-architecture | grep -q "arm64" && architecture="arm64" || architecture="arm" ;;
+    esac
+
+    if [ -z "$architecture" ]; then
+        echo "Failed to determine the architecture" 1>&2
+        exit 8
+    fi
 
     local latest_version=$(curl --fail --silent --location "https://api.github.com/repos/hashicorp/$package/tags" |
         grep '"name":' |
@@ -82,7 +91,7 @@ _get() {
 
     if [ -z "$latest_version" ]; then
         echo "Failed to determine the latest version of '$package'" 1>&2
-        exit 8
+        exit 9
     fi
 
     source "$HASHIPM_ROOT"/lib/yaml.sh
@@ -93,7 +102,7 @@ _get() {
 
     if [ -z "$download_url" ]; then
         echo "Failed to determine the download url for '$package' on ${os}/${architecture}" 1>&2
-        exit 9
+        exit 10
     fi
 
     echo "Downloading $package ($latest_version) from $download_url..."
@@ -104,7 +113,7 @@ _get() {
 
     if [ ! -f "$tmp_path" ]; then
         echo "Failed downloading $package ($latest_version) from $download_url to $tmp_path" 1>&2
-        exit 10
+        exit 11
     fi
 
     unzip -q -o "$tmp_path" -d $INSTALL_PATH
