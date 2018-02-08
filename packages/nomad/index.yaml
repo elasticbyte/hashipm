@@ -1,0 +1,6 @@
+nomad:
+  darwin_amd64: https://releases.hashicorp.com/nomad/${latest_version}/nomad_${latest_version}_darwin_amd64.zip
+  linux_386: https://releases.hashicorp.com/nomad/${latest_version}/nomad_${latest_version}_linux_386.zip
+  linux_amd64: https://releases.hashicorp.com/nomad/${latest_version}/nomad_${latest_version}_linux_amd64.zip
+  linux_arm: https://releases.hashicorp.com/nomad/${latest_version}/nomad_${latest_version}_linux_arm.zip
+  linux_arm64: https://releases.hashicorp.com/nomad/${latest_version}/nomad_${latest_version}_linux_arm64.zip
