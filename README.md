@@ -22,14 +22,14 @@ ln -s "$PWD"/hashipm/hashipm.bash /usr/local/bin/hashipm
 ##### Bash shell
 
 ```
-echo "HASHIPM_ROOT=$PWD/hashipm" >> "$HOME"/.profile
+echo "export HASHIPM_ROOT=$PWD/hashipm" >> "$HOME"/.profile
 source "$HOME"/.profile
 ```
 
 ##### Zsh shell
 
 ```
-echo "HASHIPM_ROOT=$PWD/hashipm" >> "$HOME"/.zshrc
+echo "export HASHIPM_ROOT=$PWD/hashipm" >> "$HOME"/.zshrc
 source "$HOME"/.zshrc
 ```
 
