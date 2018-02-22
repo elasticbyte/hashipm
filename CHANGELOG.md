@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+## v0.6.1 - *2/22/2018*
+
+- Added spinner animation while downloading package.
+
 ## v0.6.0 - *2/8/2018*
 
 - Support for determining architecture *(386, amd64, arm, arm64)*.

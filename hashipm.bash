@@ -19,8 +19,21 @@
 set -eo pipefail; [[ $TRACE ]] && set -x
 
 readonly NAME="hashipm"
-readonly VERSION="0.6.0"
+readonly VERSION="0.6.1"
 readonly INSTALL_PATH="/usr/local/bin"
+
+spinner() {
+    local pid=$1
+    local delay=0.1
+    local spinstr='|/-\'
+    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+        local temp=${spinstr#?}
+        printf " [%c]" "$spinstr"
+        local spinstr=$temp${spinstr%"$temp"}
+        sleep $delay
+        printf "\b\b\b\b"
+    done
+}
 
 _version() {
     echo "$NAME v$VERSION"
@@ -109,7 +122,8 @@ _get() {
 
     local tmp_path="/tmp/$package-$latest_version.zip"
 
-    curl --fail --silent --location "$download_url" > "$tmp_path"
+    (curl --fail --silent --location "$download_url" > "$tmp_path") &
+    spinner $!
 
     if [ ! -f "$tmp_path" ]; then
         echo "Failed downloading $package ($latest_version) from $download_url to $tmp_path" 1>&2

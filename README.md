@@ -56,7 +56,7 @@ Installed terraform (0.11.3) into /usr/local/bin
 
 ```
 ➜ hashipm --version
-hashipm v0.6.0
+hashipm v0.6.1
 
 ```
 
