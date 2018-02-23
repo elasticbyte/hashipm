@@ -118,9 +118,9 @@ _get() {
         exit 10
     fi
 
-    echo "Downloading $package ($latest_version) from $download_url..."
-
     local tmp_path="/tmp/$package-$latest_version.zip"
+
+    echo "Downloading $package ($latest_version) from $download_url..."
 
     (curl --fail --silent --location "$download_url" > "$tmp_path") &
     spinner $!
