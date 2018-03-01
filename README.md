@@ -16,7 +16,7 @@ A project by [Elastic Byte](https://elasticbyte.net). Built with :heart: in :gui
 
 ```
 git clone https://github.com/elasticbyte/hashipm.git
-ln -s "$PWD"/hashipm/hashipm.bash /usr/local/bin/hashipm
+sudo ln -s "$PWD"/hashipm/hashipm.bash /usr/local/bin/hashipm
 ```
 
 ##### Bash shell
@@ -56,7 +56,7 @@ Installed terraform (0.11.3) into /usr/local/bin
 
 ```
 ➜ hashipm --version
-hashipm v0.6.2
+hashipm v0.6.3
 
 ```
 

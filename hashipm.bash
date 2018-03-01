@@ -19,7 +19,7 @@
 set -eo pipefail; [[ $TRACE ]] && set -x
 
 readonly NAME="hashipm"
-readonly VERSION="0.6.2"
+readonly VERSION="0.6.3"
 INSTALL_PATH="/usr/local/bin"
 
 spinner() {
@@ -96,6 +96,11 @@ _get() {
         exit 8
     fi
 
+    if [ ! -x "$(command -v unzip)" ]; then
+        echo "Missing required dependency 'unzip'" 1>&2
+        exit 9
+    fi
+
     local latest_version=$(curl --fail --silent --location "https://api.github.com/repos/hashicorp/$package/tags" |
         grep '"name":' |
         sed -E 's/.*"([^"]+)".*/\1/' |
@@ -104,7 +109,7 @@ _get() {
 
     if [ -z "$latest_version" ]; then
         echo "Failed to determine the latest version of '$package'" 1>&2
-        exit 9
+        exit 10
     fi
 
     source "$HASHIPM_ROOT"/lib/yaml.sh
@@ -115,7 +120,7 @@ _get() {
 
     if [ -z "$download_url" ]; then
         echo "Failed to determine the download url for '$package' on ${os}/${architecture}" 1>&2
-        exit 10
+        exit 11
     fi
 
     local tmp_path="/tmp/$package-$latest_version.zip"
@@ -127,7 +132,7 @@ _get() {
 
     if [ ! -f "$tmp_path" ]; then
         echo "Failed downloading $package ($latest_version) from $download_url to $tmp_path" 1>&2
-        exit 11
+        exit 12
     fi
 
     # Fall back to /usr/bin if necessary
@@ -135,7 +140,8 @@ _get() {
         INSTALL_PATH="/usr/bin"
     fi
 
-    unzip -q -o "$tmp_path" -d $INSTALL_PATH
+    ((EUID)) && sudo_cmd="sudo"
+    $sudo_cmd unzip -q -o "$tmp_path" -d $INSTALL_PATH
 
     echo "Installed $package ($latest_version) into $INSTALL_PATH"
 

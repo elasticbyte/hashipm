@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+## v0.6.3 - *2/28/2018*
+
+- Added `sudo` when unziping package into the install path if required _(EUID)_.
+- Check to make sure dependency `unzip` is installed.
+- Added `sudo` to install instructions when linking.
+
 ## v0.6.2 - *2/28/2018*
 
 - If the directory `/usr/local/bin` does not exist, fall back to `/usr/bin` for the install path.
