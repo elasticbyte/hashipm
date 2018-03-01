@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+## v0.6.2 - *2/28/2018*
+
+- If the directory `/usr/local/bin` does not exist, fall back to `/usr/bin` for the install path.
+
 ## v0.6.1 - *2/22/2018*
 
 - Added spinner animation while downloading package.

@@ -19,8 +19,8 @@
 set -eo pipefail; [[ $TRACE ]] && set -x
 
 readonly NAME="hashipm"
-readonly VERSION="0.6.1"
-readonly INSTALL_PATH="/usr/local/bin"
+readonly VERSION="0.6.2"
+INSTALL_PATH="/usr/local/bin"
 
 spinner() {
     local pid=$1
@@ -128,6 +128,11 @@ _get() {
     if [ ! -f "$tmp_path" ]; then
         echo "Failed downloading $package ($latest_version) from $download_url to $tmp_path" 1>&2
         exit 11
+    fi
+
+    # Fall back to /usr/bin if necessary
+    if [[ ! -d $INSTALL_PATH ]]; then
+        INSTALL_PATH="/usr/bin"
     fi
 
     unzip -q -o "$tmp_path" -d $INSTALL_PATH
