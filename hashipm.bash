@@ -135,7 +135,6 @@ _get() {
         exit 12
     fi
 
-    # Fall back to /usr/bin if necessary
     if [[ ! -d $INSTALL_PATH ]]; then
         INSTALL_PATH="/usr/bin"
     fi
