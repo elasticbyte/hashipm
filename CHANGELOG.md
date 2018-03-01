@@ -3,9 +3,9 @@ CHANGELOG
 
 ## v0.6.3 - *2/28/2018*
 
-- Added `sudo` when unziping package into the install path if required _(EUID)_.
+- Added `sudo` when unzipping package into the install path if required _(EUID)_.
 - Check to make sure dependency `unzip` is installed.
-- Added `sudo` to install instructions when linking.
+- Added `sudo` to installation instructions when linking.
 
 ## v0.6.2 - *2/28/2018*
 
