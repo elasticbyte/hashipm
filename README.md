@@ -46,8 +46,8 @@ source "$HOME"/.zshrc
  
 ```
 ➜ hashipm get terraform
-Downloading terraform (0.11.3) from https://releases.hashicorp.com/terraform/0.11.3/terraform_0.11.3_darwin_amd64.zip...
-Installed terraform (0.11.3) into /usr/local/bin
+Downloading terraform (0.11.7) from https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_darwin_amd64.zip...
+Installed terraform (0.11.7) into /usr/local/bin
 ```
 
 ### version
