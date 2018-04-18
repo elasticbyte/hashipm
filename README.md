@@ -10,6 +10,8 @@ Hashipm supports the following packages:
 - [Terraform](https://www.terraform.io)
 - [Vault](https://www.vaultproject.io)
 
+**Currently hashipm does not support any Windows specific packages.**
+
 A project by [Elastic Byte](https://elasticbyte.net). Built with :heart: in :guitar: Nashville.
 
 ## Installation
