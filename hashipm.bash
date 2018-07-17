@@ -101,13 +101,13 @@ _get() {
         exit 9
     fi
 
-    local latest_version=$(curl --fail --silent --location "https://api.github.com/repos/hashicorp/$package/tags" |
+    local version=$(curl --fail --silent --location "https://api.github.com/repos/hashicorp/$package/tags" |
         grep '"name":' |
         sed -E 's/.*"([^"]+)".*/\1/' |
         head -n 1 |
         tr -d 'v')
 
-    if [ -z "$latest_version" ]; then
+    if [ -z "$version" ]; then
         echo "Failed to determine the latest version of '$package'" 1>&2
         exit 10
     fi
@@ -123,15 +123,15 @@ _get() {
         exit 11
     fi
 
-    local tmp_path="/tmp/$package-$latest_version.zip"
+    local tmp_path="/tmp/$package-$version.zip"
 
-    echo "Downloading $package ($latest_version) from $download_url..."
+    echo "Downloading $package ($version) from $download_url..."
 
     (curl --fail --silent --location "$download_url" > "$tmp_path") &
     spinner $!
 
     if [ ! -f "$tmp_path" ]; then
-        echo "Failed downloading $package ($latest_version) from $download_url to $tmp_path" 1>&2
+        echo "Failed downloading $package ($version) from $download_url to $tmp_path" 1>&2
         exit 12
     fi
 
@@ -142,7 +142,7 @@ _get() {
     ((EUID)) && sudo_cmd="sudo"
     $sudo_cmd unzip -q -o "$tmp_path" -d $INSTALL_PATH
 
-    echo "Installed $package ($latest_version) into $INSTALL_PATH"
+    echo "Installed $package ($version) into $INSTALL_PATH"
 
     rm -f "$tmp_path"
 }
