@@ -50,6 +50,7 @@ EOF
 
 _get() {
     local package=$1
+    local specific_version=$2
 
     if [ -z "$package" ]; then
         echo "Argument <package> is required" 1>&2
@@ -101,11 +102,16 @@ _get() {
         exit 9
     fi
 
-    local version=$(curl --fail --silent --location "https://api.github.com/repos/hashicorp/$package/tags" |
-        grep '"name":' |
-        sed -E 's/.*"([^"]+)".*/\1/' |
-        head -n 1 |
-        tr -d 'v')
+    if [ -z "$specific_version" ]
+    then
+        local version=$(curl --fail --silent --location "https://api.github.com/repos/hashicorp/$package/tags" |
+            grep '"name":' |
+            sed -E 's/.*"([^"]+)".*/\1/' |
+            head -n 1 |
+            tr -d 'v')
+    else
+         local version=$specific_version
+    fi
 
     if [ -z "$version" ]; then
         echo "Failed to determine the latest version of '$package'" 1>&2
