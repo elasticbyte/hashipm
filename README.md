@@ -65,7 +65,7 @@ Installed terraform (0.12.19) into /usr/local/bin
 
 ```
 ➜ hashipm --version
-hashipm v0.6.3
+hashipm v0.6.4
 
 ```
 
@@ -106,7 +106,7 @@ For more information on semantic versioning, visit https://semver.org.
 
 ## License & Legal
 
-Copyright 2018 [Elastic Byte](https://elasticbyte.net)
+Copyright 2018-2020 [Elastic Byte](https://elasticbyte.net)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
