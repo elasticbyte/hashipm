@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## v0.6.4 - *05/27/2020*
-- Added possibility to download a specific package version (#39eac54),
+- Added possibility to download a specific package version (https://github.com/elasticbyte/hashipm/pull/4),
 
 ## v0.6.3 - *2/28/2018*
 
