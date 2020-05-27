@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ###############################################################################
-# Copyright 2018 Elastic Byte
+# Copyright 2020 Elastic Byte
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
 set -eo pipefail; [[ $TRACE ]] && set -x
 
 readonly NAME="hashipm"
-readonly VERSION="0.6.3"
+readonly VERSION="0.6.4"
 INSTALL_PATH="/usr/local/bin"
 
 spinner() {
