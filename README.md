@@ -57,7 +57,6 @@ Or specifing the version
 ➜ hashipm.bash get terraform 0.12.19
 Downloading terraform (0.12.19) from https://releases.hashicorp.com/terraform/0.12.19/terraform_0.12.19_linux_amd64.zip...
 Installed terraform (0.12.19) into /usr/local/bin
-
 ```
 
 ### version
